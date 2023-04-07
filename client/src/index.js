@@ -11,7 +11,7 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <GoogleMapsProvider apiKey={"AIzaSyAU1-dHjuu_yOEtSwD86ACC_y_WcisumxI"}>
+    <GoogleMapsProvider apiKey={""}>
       <App />
     </GoogleMapsProvider>
   </React.StrictMode>,
