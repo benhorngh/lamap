@@ -1,7 +1,6 @@
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 const GoogleMapsProvider = ({ children, apiKey }) => {
-  console.log(children);
   const render = (status: any) => {
     switch (status) {
       case Status.LOADING:
@@ -9,7 +8,7 @@ const GoogleMapsProvider = ({ children, apiKey }) => {
       case Status.FAILURE:
         return <>GoogleMapsProvider Failure</>;
       case Status.SUCCESS:
-        return <>{children}</>;
+        return children;
       default:
         return <>GoogleMapsProvider Default</>;
     }

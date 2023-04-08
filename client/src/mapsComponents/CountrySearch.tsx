@@ -1,5 +1,6 @@
 import { TextField } from "@mui/material";
 import React, { useRef, useEffect } from "react";
+import "./maps.css";
 
 interface CountrySearchProps {}
 
@@ -7,17 +8,21 @@ function CountrySearch(props: CountrySearchProps) {
   const ref = useRef(null);
 
   useEffect(() => {
-    const bound = new window.google.maps.LatLngBounds(
-      new google.maps.LatLng(-33.8902, 151.1759),
-      new google.maps.LatLng(-33.8474, 151.2631)
-    );
-    new window.google.maps.places.Autocomplete(ref.current!, {
-      bounds: bound,
+    if (ref.current === null) return;
+
+    new window.google.maps.places.Autocomplete(ref.current, {
       types: ["country"],
     });
-  });
+  }, [ref]);
 
-  return <TextField inputProps={{ ref: ref }} />;
+  return (
+    <TextField
+      fullWidth
+      inputProps={{ ref: ref, placeholder: "Japan" }}
+      variant="standard"
+      label="Country"
+    />
+  );
 }
 
 export default CountrySearch;

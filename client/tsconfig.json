@@ -23,6 +23,9 @@
     "incremental": true,
     "noImplicitAny": false
   },
-  "exclude": ["dist", ".next", "out", "next.config.js"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": ["dist", ".next", "out", "next.config.js","**/tests/*.test.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "types": [
+    "@types/jest"
+    ]
 }

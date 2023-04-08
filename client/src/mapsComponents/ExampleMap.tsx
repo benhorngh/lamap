@@ -1,13 +1,11 @@
 import React, { useRef, useEffect } from "react";
 
-interface ExampleMapProps {
-  center: google.maps.LatLngLiteral;
-  zoom: number;
-}
+interface ExampleMapProps {}
 
 function ExampleMap(props: ExampleMapProps) {
-  const { center, zoom } = props;
   const ref = useRef(null);
+  const center = { lat: -34.397, lng: 150.644 };
+  const zoom = 4;
 
   useEffect(() => {
     new window.google.maps.Map(ref.current!, {
