@@ -1,4 +1,3 @@
-// import styled from "@emotion/styled";
 import {
   faEllipsisVertical,
   faLocationPin,
@@ -6,18 +5,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Stack, Typography } from "@mui/material";
 import ReactCountryFlag from "react-country-flag";
-// import { COLOR_PALETTE } from "src/common/palette";
+import { Country } from "src/common/models";
 
 interface CountryProps {
-  name: string;
+  country: Country;
 }
-
-// const StyledBoxBlock = styled(Box)({
-//   backgroundColor: COLOR_PALETTE.light,
-//   border: `1px solid ${COLOR_PALETTE.dark}`,
-//   borderRadius: "4px",
-//   boxShadow: `${COLOR_PALETTE.shadow} 0px 1px 3px`,
-// });
 
 const CountryComponent: React.FC<CountryProps> = (props) => {
   return (
@@ -30,10 +22,10 @@ const CountryComponent: React.FC<CountryProps> = (props) => {
       >
         <Stack direction="row" alignItems="center" spacing={1}>
           <FontAwesomeIcon icon={faLocationPin} />
-          <Typography>{props.name}</Typography>
+          <Typography>{props.country.name}</Typography>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={2}>
-          <CountryFlag countryCode="US" />
+          <CountryFlag countryCode={props.country.code} />
           <FontAwesomeIcon icon={faEllipsisVertical} color={"grey"} />
         </Stack>
       </Stack>

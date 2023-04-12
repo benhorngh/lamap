@@ -6,7 +6,7 @@ const ListPage = () => {
   return (
     <Box>
       <SearchBar />
-      <Countries countries={[{ name: "Denmark" }, { name: "Mexico" }]} />
+      <Countries />
     </Box>
   );
 };

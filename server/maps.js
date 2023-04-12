@@ -42,10 +42,11 @@ export function addLocation(location) {
 }
 
 class Location {
-  constructor({ id, name, rating, geo }) {
+  constructor({ id, name, rating, geo, createdAt }) {
     this.id = id;
     this.name = name;
     this.rating = rating;
     this.geo = geo;
+    this.createdAt = createdAt;
   }
 }

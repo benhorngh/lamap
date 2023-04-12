@@ -1,16 +1,20 @@
-import { Divider, Stack } from "@mui/material";
-import { Country } from "src/common/models";
+import { CircularProgress, Divider, Stack } from "@mui/material";
 import CountryComponent from "../Country";
+import { useGetMap } from "src/common/api";
 
-interface CountriesProps {
-  countries: Country[];
-}
+interface CountriesProps {}
 
 const Countries: React.FC<CountriesProps> = (props) => {
+  const getMap = useGetMap();
+
+  if (getMap.isLoading) {
+    return <CircularProgress />;
+  }
+
   return (
     <Stack divider={<Divider orientation="horizontal" flexItem />}>
-      {props.countries.map((country, i) => (
-        <CountryComponent name={country.name} key={i} />
+      {getMap.data?.map((country, i) => (
+        <CountryComponent country={country} key={i} />
       ))}
     </Stack>
   );
